@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Activity Managers</title>
-</head>
-<body>
-<div align="center">
-	<h1>Activity List</h1>
-	<a href="/new">Create New Activity</a>
-	<br/><br/>
-	<table border="1" cellpadding="10">
-		<thead>
-			<tr>
-				<th>Number</th>
-				<th>Description</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="activities : ${listActivities}">
-				<td th:text="${activities.number}">Activities ID</td>
-				<td th:text="${activities.description}">Activities Description</td>
+	<head>
+		<title>Sample Layout</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	</head>
+	<body>
+		<div align="center">
+			<h1>Asthma Patient Aide</h1>
+			<table border="1" cellpadding="10">
+				<tr>
 				<td>
-					<a th:href="@{'/edit/' + ${activities.number}}">Edit</a>
-					&nbsp;&nbsp;&nbsp;
-					<a th:href="@{'/delete/' + ${activities.number}}">Delete</a>
+					<a href="/activities">Activities</a><br>
+					<a href="">Allergy</a><br>
+					<a href="">Attack Tracker</a><br>
+					<a href="">Emotion</a><br>
+					<a href="">First Aid</a><br>
+					<a href="">Food</a><br>
+					<a href="">Food Type</a><br>
+					<a href="">Frequency</a><br>
+					<a href="">Healed</a><br>
+					<a href="">Hospital</a><br>
+					<a href="">Medication</a><br>
+					<a href="">Physician</a><br>
+					<a href="">Sleep Tracker</a><br>
+					<a href="">Stress Tracker</a><br>
+					<a href="">Users</a><br>
+					<a href="">Weather</a>
 				</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-</body>
+			</tr>	
+			</table>
+		</div>
+	</body>
 </html>

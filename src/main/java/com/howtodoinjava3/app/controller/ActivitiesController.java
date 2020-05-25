@@ -20,11 +20,11 @@ public class ActivitiesController {
 	@Autowired
 	private ActivitiesService service;
 	
-	@RequestMapping("/")
+	@RequestMapping("/activities")
 	public String viewActivitiesPage(Model model) {
 		List<Activities> listActivities = service.listAll();
 		model.addAttribute("listActivities", listActivities);
-		return "index";
+		return "activitiesindex";
 	}
 	
 	@RequestMapping("/new")
@@ -38,7 +38,7 @@ public class ActivitiesController {
 	public String saveActivity(@ModelAttribute("activities") Activities activities) {
 	    service.save(activities);
 	     
-	    return "redirect:/";
+	    return "redirect:/activities";
 	}
 	
 	@RequestMapping("/edit/{number}")
@@ -53,6 +53,6 @@ public class ActivitiesController {
 	@RequestMapping("/delete/{number}")
 	public String deleteActivity(@PathVariable(name = "number") int number) {
 	    service.delete(number);
-	    return "redirect:/";       
+	    return "redirect:/activities";       
 	}
 }
