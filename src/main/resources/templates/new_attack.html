@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Create New Attack</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Create New Attack</h1>
+		<br />
+		<form action="#" th:action="@{/saveattack}" th:object="${attack}" method="post">
+				<table border="0" cellpadding="10">
+					<tr>
+						<td>Date:</td>
+						<td><input type="date" th:field="*{date}"/></td>
+					</tr>
+					<tr>
+						<td>Time of day:</td>
+						<td><select th:field="*{timeofday}">
+							<option th:value="'AM'" th:text="AM"></option>
+							<option th:value="'PM'" th:text="PM"></option>
+						</select></td>
+					</tr>
+					<tr>
+						<td>Description:</td>
+						<td><input type="text" th:field="*{description}"/></td>
+					</tr>
+					<tr>
+						<td>First Aid:</td>
+						<td><select th:field="*{firstaid}">
+							<option th:value="'1'" th:text="1"></option>
+							<option th:value="'2'" th:text="2"></option>
+							<option th:value="'3'" th:text="3"></option>
+							<option th:value="'4'" th:text="4"></option>
+							<option th:value="'5'" th:text="5"></option>
+						</select></td>
+					</tr>
+					<tr>
+						<td>Healed:</td>
+						<td><select th:field="*{healed}">
+							<option th:value="'1'" th:text="1"></option>
+							<option th:value="'2'" th:text="2"></option>
+							<option th:value="'3'" th:text="3"></option>
+							<option th:value="'4'" th:text="4"></option>
+							<option th:value="'5'" th:text="5"></option>
+						</select></td>
+					</tr>
+					<tr>
+						<td colspan="2"><button type="submit">Save</button> </td>
+					</tr>
+				</table>
+		</form>
+	</div>
+</body>
+</html>

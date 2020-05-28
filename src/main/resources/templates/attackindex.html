@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Attack Managers</title>
+</head>
+<body>
+<div align="center">
+	<h1>Attack List</h1>
+	<a href="/">Home</a> &nbsp;
+	<a href="/newattack">Create New Attack Record</a>
+	<br/>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Number</th>
+				<th>Date</th>
+				<th>Time of day</th>
+				<th>Description</th>
+				<th>First Aid</th>
+				<th>Healed</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="attack : ${listAttack}">
+				<td th:text="${attack.number}">ID</td>
+				<td th:text="${attack.date}">Date</td>
+				<td th:text="${attack.timeofday}">Time of day</td>
+				<td th:text="${attack.description}">Description</td>
+				<td th:text="${attack.firstaid}">First aid</td>
+				<td th:text="${attack.healed}">Healed</td>
+				<td>
+					<a th:href="@{'/editattack/' + ${attack.number}}">Edit</a>
+					&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/deleteattack/' + ${attack.number}}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
