@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Emotion Managers</title>
+</head>
+<body>
+<div align="center">
+	<h1>Emotion List</h1>
+	<a href="/">Home</a>
+	<a href="/newemotion">Create New Emotion</a>
+	<br/>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Number</th>
+				<th>Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="emotion : ${listEmotion}">
+				<td th:text="${emotion.number}">Emotion ID</td>
+				<td th:text="${emotion.description}">Emotion Description</td>
+				<td>
+					<a th:href="@{'/editemotion/' + ${emotion.number}}">Edit</a>
+					&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/deleteemotion/' + ${emotion.number}}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

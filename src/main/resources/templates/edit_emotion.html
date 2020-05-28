@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit Emotion</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Edit Emotion</h1>
+		<br />
+		<form action="#" th:action="@{/saveemotion}" th:object="${emotion}" method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Emotion Number:</td>
+					<td>
+						<input type="text" th:field="*{number}" readonly="readonly" />
+					</td>
+				</tr>
+				<tr>
+					<td>Description:</td>
+					<td>
+						<input type="text" th:field="*{description}" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><button type="submit">Save</button></td>
+				</tr>
+			</table>		
+		</form> 
+	</div>
+</body>
+</html>
