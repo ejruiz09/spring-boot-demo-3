@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+	<div id="container">
+	<h2>Login Page</h2>
+	<form th:action="@{/login.html}" method="post">
+		<label for="username">Username</label>
+		<input type="text" id="username" name="username" autofocus="autofocus"/><br>
+		<label for="password">Password</label>
+		<input type="password" id="password" name="password"/><br>
+		<input type="submit" id="submit" value="Log in"/>
+	</form>
+	<p th:if="${loginError}" class="error">Wrong user or password</p>
+	</div>
+</body>
+</html>
