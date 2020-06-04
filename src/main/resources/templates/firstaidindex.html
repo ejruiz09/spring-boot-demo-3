@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta charset="UTF-8">
+	<title>First Aid Managers</title>
+	</head>
+	<body>
+	<div align="center">
+		<h1>First Aid List</h1>
+		<a href="/">Home</a> &nbsp;
+		<a href="/newfirstaid">Add New First Aid</a>
+		<br/>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>Number</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="firstaid : ${listFirstAid}">
+					<td th:text="${firstaid.number}">First Aid ID</td>
+					<td th:text="${firstaid.description}">First Aid Description</td>
+					<td>
+						<a th:href="@{'/editfirstaid/' + ${firstaid.number}}">Edit</a>
+						&nbsp;&nbsp;&nbsp;
+						<a th:href="@{'/deletefirstaid/' + ${firstaid.number}}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</body>
+</html>
