@@ -1,7 +1,5 @@
 package com.howtodoinjava3.app.entity;
 
-import java.sql.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,6 +18,7 @@ public class Attack {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private String date;
 	@Column(name="timeofday")
+	@DateTimeFormat(pattern = "hh:mm:ss a")
 	private String timeofday;
 	@Column(name="description")
 	private String description;
@@ -27,9 +26,11 @@ public class Attack {
 	private int firstaid;
 	@Column(name="healed")
 	private int healed;
+	@Column(name="frequency")
+	private int frequency;
 	
 	
-	public Attack(int number, String date, String timeofday, String description, int firstaid, int healed) {
+	public Attack(int number, String date, String timeofday, String description, int firstaid, int healed, int frequency) {
 		super();
 		this.number = number;
 		this.date = date;
@@ -37,6 +38,7 @@ public class Attack {
 		this.description = description;
 		this.firstaid = firstaid;
 		this.healed = healed;
+		this.frequency = frequency;
 	}
 
 	public Attack() {
@@ -90,11 +92,21 @@ public class Attack {
 	public void setHealed(int healed) {
 		this.healed = healed;
 	}
+	
+	
+
+	public int getFrequency() {
+		return frequency;
+	}
+
+	public void setFrequency(int frequency) {
+		this.frequency = frequency;
+	}
 
 	@Override
 	public String toString() {
 		return "Attack [number=" + number + ", date=" + date + ", timeofday=" + timeofday + ", description="
-				+ description + ", firstaid=" + firstaid + ", healed=" + healed + "]";
+				+ description + ", firstaid=" + firstaid + ", healed=" + healed + ", frequency=" + frequency + "]";
 	}
 	
 	

@@ -20,6 +20,7 @@
 				<th>Description</th>
 				<th>First Aid</th>
 				<th>Healed</th>
+				<th>Frequency</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -30,6 +31,7 @@
 				<td th:text="${attack.description}">Description</td>
 				<td th:text="${attack.firstaid}">First aid</td>
 				<td th:text="${attack.healed}">Healed</td>
+				<td th:text="${attack.frequency}">Frequency</td>
 				<td>
 					<a th:href="@{'/editattack/' + ${attack.number}}">Edit</a>
 					&nbsp;&nbsp;&nbsp;
