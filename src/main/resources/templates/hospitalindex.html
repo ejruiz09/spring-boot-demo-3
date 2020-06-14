@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Hospital Details Manager</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Hospital Details List</h1>
+		<a href="/">Home</a> &nbsp;
+		<a href="/newhospital">Add New Hospital Details</a>
+		<br/>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Doctor's Name</th>
+					<th>Type of Physician</th>
+					<th>Fee</th>
+					<th>Date</th>
+					<th>Frequency</th>
+					<th>Medication</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="hospital : ${listHospital}">
+					<td th:text="${hospital.id}">Hospital ID</td>
+					<td th:text="${hospital.name}">Hospital Name</td>
+					<td th:text="${hospital.doctorname}">Doctor's Name</td>
+					<td th:text="${hospital.physiciantype}">Type of Physican</td>
+					<td th:text="${hospital.fee}">Fee</td>
+					<td th:text="${hospital.date}">Date</td>
+					<td th:text="${hospital.frequency}">Frequency</td>
+					<td th:text="${hospital.medication}">Medication</td>
+					<td>
+						<a th:href="@{'/edithospitalrecord/' + ${hospital.id}}">Edit</a>
+						&nbsp;&nbsp;&nbsp;
+						<a th:href="@{'/deletehospitalrecord/' + ${hospital.id}}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
