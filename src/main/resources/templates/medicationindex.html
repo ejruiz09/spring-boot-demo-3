@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Medication Managers</title>
+</head>
+<body>
+<div align="center">
+	<h1>Medication List</h1>
+	<a href="/">Home</a> &nbsp;
+	<a href="/newmedication">Add New Medication</a>
+	<br/>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Hospital</th>
+				<th>Doctor</th>
+				<th>Physician Type</th>
+				<th>Date</th>
+				<th>Frequency</th>
+				<th>Generic Name</th>
+				<th>Brand Name</th>
+				<th>Quantity</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="medication : ${listMedication}">
+				<td th:text="${medication.id}">ID</td>
+				<td th:text="${medication.hospital}">Hospital</td>
+				<td th:text="${medication.doctor}">Doctor</td>
+				<td th:text="${medication.physiciantype}">Physician Type</td>
+				<td th:text="${medication.date}">Date</td>
+				<td th:text="${medication.frequency}">Frequency</td>
+				<td th:text="${medication.genericname}">Generic Name</td>
+				<td th:text="${medication.brandname}">Brand Name</td>
+				<td th:text="${medication.quantity}">Quantity</td>
+				<td th:text="${medication.price}">Price</td>
+				<td>
+					<a th:href="@{'/editmedication/' + ${medication.id}}">Edit</a>
+					&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/deletemedication/' + ${medication.id}}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
