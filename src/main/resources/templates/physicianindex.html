@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Physician List</title>
+</head>
+<body>
+<div align="center">
+	<h1>Physician List</h1>
+	<a href="/">Home</a> &nbsp;
+	<a href="/newphysician">Add New Physician Name</a>
+	<br/>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Number</th>
+				<th>Type</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="physician : ${listPhysician}">
+				<td th:text="${physician.number}">Physician Number</td>
+				<td th:text="${physician.type}">Physician Type</td>
+				<td>
+					<a th:href="@{'/editphysician/' + ${physician.number}}">Edit</a>
+					&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/deletephysician/' + ${physician.number}}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
