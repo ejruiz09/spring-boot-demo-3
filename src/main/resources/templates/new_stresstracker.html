@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add New Stress</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Add New Stress</h1>
+		<br/>
+		<form action="#" th:action="@{/savestresstracker}" th:object="${stresstracker}" method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Emotions:</td>
+					<td><select th:field="*{emotions}">
+						<option th:value="'1'" th:text="1"></option>
+						<option th:value="'2'" th:text="2"></option>
+						<option th:value="'3'" th:text="3"></option>
+						<option th:value="'4'" th:text="4"></option>
+						<option th:value="'5'" th:text="5"></option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Date:</td>
+					<td><input type="date" th:field="*{date}"/></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button type="submit">Save</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

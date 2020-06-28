@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Stress Tracker Managers</title>
+</head>
+<body>
+<div align="center">
+	<h1>Stress Tracker List</h1>
+	<a href="/">Home</a> &nbsp;
+	<a href="/newstresstracker">New Stress Tracker Entry</a>
+	<br/>
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Emotions</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="stresstracker : ${listStressTracker}">
+				<td th:text="${stresstracker.id}">Stress ID</td>
+				<td th:text="${stresstracker.emotions}">Emotions</td>
+				<td th:text="${stresstracker.date}">Date</td>
+				<td>
+					<a th:href="@{'/editstresstracker/' + ${stresstracker.id}}">Edit</a>
+					&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/deletestresstracker/' + ${stresstracker.id}}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
