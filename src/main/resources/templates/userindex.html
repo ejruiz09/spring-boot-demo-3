@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>User Manager Page</title>
+</head>
+<body>
+	<div align="center">
+		<h1>User List</h1>
+		<a href="/">Home</a> &nbsp;
+		<a href="/newuser">Add New User</a>
+		<br/>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>User ID</th>
+					<th>User Name</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Password</th>
+					<th>Age</th>
+					<th>Gender</th>
+					<th>Birthday</th>
+					<th>City</th>
+					<th>Country</th>
+					<th>Diagnosis</th>
+					<th>Email</th>
+					<th>Medication</th>
+					<th>Allergy</th>
+					<th>Hospital</th>
+					<th>lastAttack</th>
+					<th>food</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="user : ${listUser}">
+					<td th:text="${user.userId}">User ID</td>
+					<td th:text="${user.username}">User Name</td>
+					<td th:text="${user.firstname}">First Name</td>
+					<td th:text="${user.lastname}">Last Name</td>
+				    <td th:text="${user.password}">Password</td>
+				    <td th:text="${user.age}">Age</td>
+				    <td th:text="${user.gender}">Gender</td>
+				    <td th:text="${user.birthday}">Birthday</td>
+				    <td th:text="${user.city}">City</td>
+				    <td th:text="${user.country}">Country</td>
+				    <td th:text="${user.diagnosis}">Diagnosis</td>
+				    <td th:text="${user.email}">Email</td>
+				    <td th:text="${user.medication}">Medication</td>
+				    <td th:text="${user.allergy}">Allergy</td>
+				    <td th:text="${user.hospital}">Hospital</td>
+				    <td th:text="${user.lastattack}">Last Attack</td>
+				    <td th:text="${user.food}">Food</td>
+				    <td>
+				    	<a th:href="@{'/edituser/' + ${user.userId}}">Edit</a>
+				    	&nbsp;&nbsp;&nbsp;
+				    	<a th:href="@{'/deleteuser/' + ${user.userId}}">Delete</a>
+				    </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
