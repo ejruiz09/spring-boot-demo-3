@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add New Weather Record</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Add New Weather Record</h1>
+		<br/>
+		<form action="#" th:action="@{/saveweather}" th:object="${weather}" method="post">
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>Location:</td>
+					<td><input type="text" th:field="*{location}"/></td>
+				</tr>
+				<tr>
+					<td>Date:</td>
+					<td><input type="date" th:field="*{date}"/></td>
+				</tr>
+				<tr>
+					<td>Day:</td>
+					<td><input type="text" th:field="*{day}"/></td>
+				</tr>
+				<tr>
+					<td>Time:</td>
+					<td><input type="time" th:field="*{time}"/></td>
+				</tr>
+				<tr>
+					<td>Temperature:</td>
+					<td><input type="text" th:field="*{temperature}"/></td>
+				</tr>
+				<tr>
+					<td>Hourly Temperature:</td>
+					<td><input type="text" th:field="*{hourlytemperature}"/></td>
+				</tr>
+				<tr>
+					<td>Daily Temperature:</td>
+					<td><input type="text" th:field="*{dailytemperature}"/></td>
+				</tr>
+				<tr>
+					<td>Humidity:</td>
+					<td><input type="text" th:field="*{humidity}"/></td>
+				</tr>
+				<tr>
+					<td>Ux Index:</td>
+					<td><input type="text" th:field="*{uxindex}"/></td>
+				</tr>
+				<tr>
+					<td>Pollen Running:</td>
+					<td><input type="text" th:field="*{pollenrunning}"/></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button type="submit">Save</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
